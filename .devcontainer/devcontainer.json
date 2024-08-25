@@ -1,0 +1,26 @@
+{
+  "name": "Java Development Container",
+  "image": "mcr.microsoft.com/devcontainers/java:1-11-bookworm",
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash",
+    "java.home": "/usr/lib/jvm/java-11-openjdk-amd64",
+    "java.configuration.updateBuildConfiguration": "automatic"
+  },
+  "extensions": [
+    "redhat.java",
+    "dbaeumer.vscode-intellij-idea-keybindings" // 如果你想使用 IntelliJ IDEA 的键位绑定
+  ],
+  "postCreateCommand": "apt-get update && apt-get install -y maven", // 安装 Maven 或其他构建工具
+  "forwardPorts": [
+    8080 // 假设你的 Java 应用在 8080 端口上运行
+  ],
+  "mounts": [
+  ],
+  "remoteUser": "root",
+
+  "customizations" : {
+    "jetbrains" : {
+      "backend" : "IntelliJ"
+    }
+  }
+}
